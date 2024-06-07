@@ -1,13 +1,12 @@
-version: '3.8'
-
 services:
-  ioef-cmod-server:
+  ioef-cmod:
+    image: ghcr.io/catskull/ioef-cmod:master
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ioef-cmod-server
+    container_name: ioef-cmod
     ports:
       - "27960:27960/udp"
     volumes:
-      - ./BaseEF:/usr/local/bin/baseEF
+      - /path/to/your/data:/usr/local/bin/baseEF
     restart: unless-stopped
