@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ioef-cmod-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ioef-cmod-server
+    ports:
+      - "27960:27960/udp"
+    volumes:
+      - ./BaseEF:/usr/local/bin/baseEF
+    restart: unless-stopped
